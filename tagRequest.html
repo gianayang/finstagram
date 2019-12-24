@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<div>
+            {% for tag in tagRequest %}
+            {{tag.username}} tagged you in {{tag.photoID}}
+            <p><img src="../static/{{tag.filepath}}" alt="postPicture" width="20%"></p>
+            <p>Accept tag?</p>
+            <form action = "/updateTag?photoID={{tag.photoID}}"method = "POST">
+                <div>
+                        <input type="radio" name="options" id="option1" value="1"> yes </input><br>
+                        <input type="radio" name="options" id="option2" value="0"> no </input><br>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+            {% endfor %}   
+
+		</div>
+		<a href="/home">Go back</a>
+	</body>
+</html>

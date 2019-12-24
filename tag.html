@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<h1>Tag a Friend! &#127877; </h1>
+		<div>
+            <h3>People tagged in this picture:</h3>
+            {% for tag in tagPage %}
+            <table>
+            <tr>
+                <th>firstName </th>
+                <th>lastName</th>
+            <tr>
+                <td>{{tag.firstName}} </td>
+                <td>{{tag.lastName}}</td>
+            </tr>
+            </table>
+            {% endfor %}   
+                
+
+		</div>
+		<a href="/home">Go back</a>
+	</body>
+</html>

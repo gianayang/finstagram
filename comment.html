@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>View Likes</title>
+    </head>
+        <body>
+            <h1>&hearts; You've commented a picture!</h1>
+            <table>
+                <tr>
+                    <th>username </th>
+                    <th>comment </th>
+                {% for comment in comments %}
+                <tr>
+                    <td>{{comment.username}} </td>
+                    <td>{{comment.comment}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            <br/>
+            <a href="/home">Go back</a>
+        </body>
+</html>

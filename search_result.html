@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SearchResult</title>
+</head>
+<body>
+    <style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+</br>
+<table>
+	<tr>
+			<th> photoID </th>
+			<th>firstName </th>
+			<th>lastName </th>
+			<th>postingdate</th>
+	</tr>
+</table>
+	<table>
+			<tr>
+				{% for image in images %}
+				<p>{{image.photoID}}, {{image.firstName}},{{image.lastName}},{{image.postingdate}}</p>
+
+				<p><img src="../static/{{image.filepath}}" alt="postPicture" width="20%"></p>
+	</tr>
+{% endfor %}
+</table>
+</body>
+</html>

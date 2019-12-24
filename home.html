@@ -1,0 +1,63 @@
+<html>
+<head>
+</head>
+
+<body>
+	<h1 style="color:blueviolet">Welcome To Finstagram {{username}}  &#127752;</h1>
+	<a href="/upload_image">Upload Image</a>
+	<h2 style="color:blueviolet">Search By Tag </h2>
+	<form method="POST" action="/search_by_tag">
+		<input type="search" name="keyword"><br>
+		<input type="submit" value="search">
+	</form>
+	<h2 style="color:blueviolet">Search By Poster </h2>
+	<form method="POST" action="/search_by_poster">
+		<input type="search" name="keyword"><br>
+		<input type="submit" value="search">
+	</form>
+
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+</br>
+<table>
+	<tr>
+			<th> photoID </th>
+			<th>firstName </th>
+			<th>lastName </th>
+			<th>postingdate</th>
+	</tr>
+</table>
+	<table>
+			<tr>	
+				{% for image in images %}
+				<p>{{image.photoID}}, {{image.firstName}},{{image.lastName}},{{image.postingdate}}</p>
+
+				<p><img src="../static/{{image.filepath}}" alt="postPicture" width="20%"></p>
+
+				<form action="/like?photoID={{image.photoID}}" method="POST">
+					<p>Enter your rating: </p><input type="number" name="rating" required/>
+					<input type="submit" value = &hearts; Like/>
+				</form>
+				<form action="/comment?photoID={{image.photoID}}" method="POST">
+					<p><input type="text" name="comment" required/>
+					<input type="submit" value = comment></p>
+				</form>
+				<form action = "/tagged?photoID={{image.photoID}}" method="POST">
+					<input type="text" name="taggee" required/>
+					<input type="submit" value = tag></p>
+				</form>
+				<a href="/tag?photoID={{image.photoID}}">See Who's Tagged in This Picture &#9757;</a>
+	</tr>
+{% endfor %}
+</table>
+<a href="/tagRequest">See your Tag Request</a>
+<br>
+<a href="/logout">Logout</a>
+
+</body>
+
+
+</html>
